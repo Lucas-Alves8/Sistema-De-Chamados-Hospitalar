@@ -25,4 +25,4 @@ public class User {
     @Column(name = "roles")
     private List<String> roles;
 
-}
+    }
