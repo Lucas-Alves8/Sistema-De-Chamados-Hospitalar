@@ -1,0 +1,34 @@
+package dto;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import models.enums.ElevatorFloor;
+import org.hibernate.validator.constraints.UUID;
+import org.hibernate.validator.constraints.br.CPF;
+
+public record UpdateEmployeeDto(
+                                @NotNull(message = "Need the id")
+                                UUID id,
+
+                                @NotNull(message = "I need to know your name")
+                                String name,
+
+                                @NotNull(message = "CPF is the most important")
+                                @CPF(message = "Invalid CPF")
+                                String cpf,
+
+                                @NotNull(message = "Sector is necessary")
+                                String sector,
+
+                                @NotNull(message = "Elevator Floor is necessary")
+                                ElevatorFloor elevatorFloor,
+
+                                @NotBlank(message = "RG is required")
+                                @Pattern(regexp = "^[0-9Xx.-]{5,14}$", message = "RG invalid")
+                                String rg,
+
+                                @NotNull(message = "Your age is important")
+                                Integer age
+) {
+}
