@@ -2,6 +2,8 @@ package models;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import models.enums.ElevatorFloor;
+import models.enums.Sector;
 import models.enums.TicketPriority;
 import models.enums.TicketStatus;
 import org.hibernate.annotations.CreationTimestamp;
@@ -16,9 +18,8 @@ import java.util.UUID;
 public class Ticket {
 
     @Id
-    @GeneratedValue
     @UuidGenerator
-    @Column(nullable = false, updatable = false)
+    @Column(name = "id", nullable = false)
     private UUID id;
 
 
@@ -26,7 +27,7 @@ public class Ticket {
     private String message;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     private TicketStatus status;
 
     @Enumerated(EnumType.STRING)
@@ -40,7 +41,13 @@ public class Ticket {
     @Column(name = "closedAt", nullable = false)
     private LocalDateTime closedAt;
 
-    @Column(name = "dateLimit", nullable = false, updatable = false)
-    private LocalDateTime dateLimit;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "elevatorFloor", length = 50, nullable = false)
+    private ElevatorFloor elevatorFloor;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "sector", length = 50, nullable = false)
+    private Sector sector;
 
 }

@@ -1,5 +1,6 @@
 package service;
 
+
 import models.User;
 import repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,7 @@ public class UserService {
 
     private final UserRepository repository;
     private final PasswordEncoder encoder;
+
 
     public void save(User user){
         var password = user.getPassword();

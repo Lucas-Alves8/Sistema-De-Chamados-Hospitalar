@@ -1,11 +1,12 @@
-package dto;
+package controller.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import models.enums.ElevatorFloor;
-import org.hibernate.validator.constraints.UUID;
 import org.hibernate.validator.constraints.br.CPF;
+
+import java.util.UUID;
 
 public record UpdateEmployeeDto(
                                 @NotNull(message = "Need the id")

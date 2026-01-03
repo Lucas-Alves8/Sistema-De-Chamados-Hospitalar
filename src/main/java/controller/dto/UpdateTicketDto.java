@@ -1,4 +1,4 @@
-package dto;
+package controller.dto;
 
 import jakarta.validation.constraints.NotNull;
 import models.enums.ElevatorFloor;

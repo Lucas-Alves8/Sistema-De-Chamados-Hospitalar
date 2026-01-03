@@ -1,4 +1,4 @@
-package dto;
+package controller.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -21,7 +21,7 @@ public record SupportTiDto(
                            String cpf,
 
                            @NotNull(message = "Your age is important")
-                           int age,
+                           Integer age,
 
                            @NotBlank(message = "RG is so much necessary")
                            @Pattern(

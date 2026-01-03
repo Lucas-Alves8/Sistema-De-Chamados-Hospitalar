@@ -16,6 +16,15 @@ spring:
       hibernate:
         format_sql: true
 
+  security:
+    user:
+      name: admin
+      password: 1234
+
+springdoc:
+  override-with-generic-response: false
+
+
 server:
   port: 8081
 

@@ -1,6 +1,6 @@
-package mappers;
+package controller.mappers;
 
-import dto.UserDto;
+import controller.dto.UserDto;
 import models.User;
 import org.mapstruct.Mapper;
 

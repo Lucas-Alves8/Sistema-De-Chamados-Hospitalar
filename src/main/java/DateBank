@@ -1,0 +1,45 @@
+CREATE TABLE ticket (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    message VARCHAR(100) NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    priority VARCHAR(50) NOT NULL,
+    opened_at TIMESTAMP NOT NULL DEFAULT now(),
+    closed_at TIMESTAMP,
+    elevator_floor VARCHAR(50) NOT NULL,
+    sector VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE users (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    login VARCHAR(25) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    roles VARCHAR[] NOT NULL
+);
+
+CREATE TABLE employee (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    name VARCHAR(30) NOT NULL,
+    sector VARCHAR(25) NOT NULL,
+    elevatorFloor VARCHAR(25) NOT NULL,
+    cpf VARCHAR(11) NOT NULL UNIQUE,
+    age INTEGER NOT NULL,
+    rg VARCHAR(20) NOT NULL,
+    roles VARCHAR[]
+);
+
+CREATE TABLE supportTi (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    name VARCHAR(30) NOT NULL,
+    cpf VARCHAR(11) UNIQUE NOT NULL,
+    age INTEGER NOT NULL CHECK (age >= 0 AND age <= 102),
+    rg VARCHAR(20) NOT NULL,
+    roles VARCHAR[] NOT NULL
+);
+
+CREATE TABLE client (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    client_id VARCHAR(255) NOT NULL,
+    client_secret VARCHAR(100) NOT NULL,
+    redirect_uri VARCHAR(255),
+    scope VARCHAR(25) NOT NULL
+);

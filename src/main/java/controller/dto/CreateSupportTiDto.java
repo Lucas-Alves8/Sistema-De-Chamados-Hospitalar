@@ -1,4 +1,4 @@
-package dto;
+package controller.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -13,10 +13,7 @@ public record CreateSupportTiDto(@NotNull(message = "I need to know your name")
                                  @CPF(message = "Invalid CPF")
                                  String cpf,
 
-                                 @NotNull(message = "Elevator Floor is necessary")
-                                 ElevatorFloor elevatorFloor,
-
-                                 @NotBlank(message = "RG is required")
+                                 @NotNull(message = "RG is required")
                                  @Pattern(regexp = "^[0-9Xx.-]{5,14}$", message = "RG invalid")
                                  String rg,
 
